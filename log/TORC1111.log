@@ -1,0 +1,58 @@
+Jul 16, 2019 6:16:41 AM ClientPackage.CustomerClient main
+INFO: User id entered is TORC1111
+Jul 16, 2019 6:16:41 AM ClientPackage.CustomerClient main
+INFO: entered as a client with IDTORC1111
+Jul 16, 2019 6:17:04 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:17:04 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID OTWE080619 and eventtypeConference
+Jul 16, 2019 6:17:04 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  Event booked successfully.
+Jul 16, 2019 6:17:32 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:17:32 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID MTLA090619 and eventtypeConference
+Jul 16, 2019 6:17:32 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  Event booked successfully.
+Jul 16, 2019 6:18:34 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:18:34 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID MTLA080619 and eventtypeTradeShow
+Jul 16, 2019 6:18:34 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  Event booked successfully.
+Jul 16, 2019 6:18:59 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:18:59 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID OTWE110619 and eventtypeConference
+Jul 16, 2019 6:18:59 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  User already registered for 3 events outside their city in 06 month.
+Jul 16, 2019 6:19:29 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:19:29 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID MTLE230719 and eventtypeSeminar
+Jul 16, 2019 6:19:29 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  Event booked successfully.
+Jul 16, 2019 6:19:56 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:19:56 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID TORE050619 and eventtypeConference
+Jul 16, 2019 6:19:56 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  There is no Conference corresponding to the eventID you entered.
+Jul 16, 2019 6:23:57 AM ClientPackage.CustomerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 6:23:57 AM ClientPackage.CustomerClient main
+INFO: Parameter: student ID: TORC1111
+Jul 16, 2019 6:23:57 AM ClientPackage.CustomerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 1, OTWE080619, Seminars-, 1, MTLE230719, Trade Shows-, 0]
+Jul 16, 2019 6:48:22 AM ClientPackage.CustomerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 6:48:22 AM ClientPackage.CustomerClient main
+INFO: Parameter: student ID: TORC1111
+Jul 16, 2019 6:48:22 AM ClientPackage.CustomerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 1, OTWE080619, Seminars-, 1, MTLE230719, Trade Shows-, 0]
+Jul 16, 2019 7:08:12 AM ClientPackage.CustomerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 7:08:12 AM ClientPackage.CustomerClient main
+INFO: Parameter: student ID: TORC1111
+Jul 16, 2019 7:08:12 AM ClientPackage.CustomerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 2, OTWE080619, OTWE110619, Seminars-, 0, Trade Shows-, 0]

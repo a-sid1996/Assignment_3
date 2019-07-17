@@ -1,0 +1,60 @@
+Jul 16, 2019 6:12:19 AM ClientPackage.EventManagerClient main
+INFO: User id entered is OTWM1111
+Jul 16, 2019 6:12:19 AM ClientPackage.EventManagerClient main
+INFO: Entered as a Manager with IDOTWM1111
+Jul 16, 2019 6:12:41 AM ClientPackage.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 16, 2019 6:12:43 AM ClientPackage.EventManagerClient main
+INFO: Parameters :OTWE080619 Conference 1
+Jul 16, 2019 6:12:43 AM ClientPackage.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 16, 2019 6:13:07 AM ClientPackage.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 16, 2019 6:13:09 AM ClientPackage.EventManagerClient main
+INFO: Parameters :OTWE110619 Conference 1
+Jul 16, 2019 6:13:09 AM ClientPackage.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 16, 2019 6:13:28 AM ClientPackage.EventManagerClient main
+INFO: Sorry you cannot add the event for other cities
+Jul 16, 2019 6:25:12 AM ClientPackage.EventManagerClient main
+INFO: Request: list eventavailability req to Ottawa server 
+Jul 16, 2019 6:25:12 AM ClientPackage.EventManagerClient main
+INFO: Parameter:Conference
+Jul 16, 2019 6:25:12 AM ClientPackage.EventManagerClient main
+INFO: Reply [OTWE110619 1, OTWE080619 0, MTLA090619 2]
+Jul 16, 2019 6:25:31 AM ClientPackage.EventManagerClient main
+INFO: Request: list eventavailability req to Ottawa server 
+Jul 16, 2019 6:25:31 AM ClientPackage.EventManagerClient main
+INFO: Parameter:Seminar
+Jul 16, 2019 6:25:31 AM ClientPackage.EventManagerClient main
+INFO: Reply [MTLE230719 0]
+Jul 16, 2019 6:25:41 AM ClientPackage.EventManagerClient main
+INFO: Request: list eventavailability req to Ottawa server 
+Jul 16, 2019 6:25:41 AM ClientPackage.EventManagerClient main
+INFO: Parameter:TradeShow
+Jul 16, 2019 6:25:41 AM ClientPackage.EventManagerClient main
+INFO: Reply []
+Jul 16, 2019 6:42:26 AM ClientPackage.EventManagerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 6:42:26 AM ClientPackage.EventManagerClient main
+INFO: Parameter: student ID: MTLC1111
+Jul 16, 2019 6:42:26 AM ClientPackage.EventManagerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 0, Seminars-, 0, Trade Shows-, 0]
+Jul 16, 2019 7:05:00 AM ClientPackage.EventManagerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 7:05:00 AM ClientPackage.EventManagerClient main
+INFO: Parameter: student ID: MTLC1111
+Jul 16, 2019 7:05:00 AM ClientPackage.EventManagerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 0, Seminars-, 0, Trade Shows-, 0]
+Jul 16, 2019 7:05:06 AM ClientPackage.EventManagerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 7:05:06 AM ClientPackage.EventManagerClient main
+INFO: Parameter: student ID: TORC1111
+Jul 16, 2019 7:05:06 AM ClientPackage.EventManagerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 1, OTWE080619, Seminars-, 1, MTLE230719, Trade Shows-, 0]
+Jul 16, 2019 7:05:14 AM ClientPackage.EventManagerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 7:05:14 AM ClientPackage.EventManagerClient main
+INFO: Parameter: student ID: OTWC1111
+Jul 16, 2019 7:05:14 AM ClientPackage.EventManagerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 0, Seminars-, 0, Trade Shows-, 0]

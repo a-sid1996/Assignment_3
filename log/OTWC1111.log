@@ -1,0 +1,16 @@
+Jul 16, 2019 6:21:45 AM ClientPackage.CustomerClient main
+INFO: User id entered is OTWC1111
+Jul 16, 2019 6:21:45 AM ClientPackage.CustomerClient main
+INFO: entered as a client with IDOTWC1111
+Jul 16, 2019 6:22:25 AM ClientPackage.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 16, 2019 6:22:25 AM ClientPackage.CustomerClient main
+INFO: Parameters passed are customerID OTWC1111 eventID OTWE080619 and eventtypeConference
+Jul 16, 2019 6:22:25 AM ClientPackage.CustomerClient main
+INFO: Reply ------>  Sorry the Conference with OTWE080619 is full.
+Jul 16, 2019 6:24:45 AM ClientPackage.CustomerClient main
+INFO: Request: Booking Schedule 
+Jul 16, 2019 6:24:45 AM ClientPackage.CustomerClient main
+INFO: Parameter: student ID: OTWC1111
+Jul 16, 2019 6:24:45 AM ClientPackage.CustomerClient main
+INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 0, Seminars-, 0, Trade Shows-, 0]
