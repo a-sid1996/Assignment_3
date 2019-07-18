@@ -1,4 +1,4 @@
-package _ServerPackage;
+package ServerPackage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,12 +7,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -22,30 +18,20 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
-import org.omg.CORBA.ORB;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+
 
 /**
  * The Class Ottawa_Class.
  */
-public class Ottawa_Class extends Common_IntefacePOA{
+@WebService(endpointInterface = "_ServerPackage.Common_interface")
+@SOAPBinding(style = SOAPBinding.Style.RPC)
+public class Ottawa_Class implements Common_Inteface{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The orb. */
-	private ORB orb;
-
-	/**
-	 * Sets the orb.
-	 *
-	 * @param orb_val the new orb
-	 */
-	public void setORB(ORB orb_val) {
-		orb = orb_val;
-
-	}
-
-	
 	/**
 	 * Instantiates a new ottawa class.
 	 *

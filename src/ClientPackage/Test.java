@@ -1,20 +1,29 @@
 package ClientPackage;
 
-import java.util.Properties;
+import java.net.URL;
 
-import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
-import _ServerPackage.Common_Inteface;
-import _ServerPackage.Common_IntefaceHelper;
+import ServerPackage.Common_Inteface;
 
+/**
+ * The Class Test.
+ */
 public class Test {
 	
+	/** The montreal obj. */
 	static Common_Inteface montreal_obj;
+	
+	/** The ottawa obj. */
 	static Common_Inteface ottawa_obj;
+	
+	/** The toronto obj. */
 	static Common_Inteface toronto_obj;
 	
+	/**
+	 * Perform 1.
+	 */
 	public static void perform1() {
 
 		String newEventID = "OTWE110619";
@@ -27,6 +36,9 @@ public class Test {
 
 	}
 	
+	/**
+	 * Perform 2.
+	 */
 	public static void perform2() {
 
 		String newEventID = "MTLA090619";
@@ -39,6 +51,9 @@ public class Test {
 
 	}
 	
+	/**
+	 * Perform 3.
+	 */
 	public static void perform3() {
 
 		String customerID = "MTLC1111";
@@ -48,6 +63,9 @@ public class Test {
 
 	}
 	
+	/**
+	 * Perform 4.
+	 */
 	public static void perform4() {
 
 		String customerID = "MTLC1111";
@@ -58,6 +76,9 @@ public class Test {
 	}
 	
 	
+	/**
+	 * Perform 5.
+	 */
 	public static void perform5() {
 
 		String newEventID = "MTLA080619";
@@ -71,6 +92,9 @@ public class Test {
 	}
 
 	
+	/**
+	 * Perform 6.
+	 */
 	public static void perform6() {
 
 		String newEventID = "MTLA080619";
@@ -83,23 +107,29 @@ public class Test {
 
 	}
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws Exception the exception
+	 */
 	public static void main(String args[]) throws Exception {
 		
-		Properties props = new Properties();
+		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
+		QName montrealQName = new QName("http://server/", "MTL_ImplService");
+		Service montrealService = Service.create(montrealURL, montrealQName);
+		montreal_obj =  montrealService.getPort(Common_Inteface.class);
 
-		props.put("org.omg.CORBA.ORBInitialPort", "1050");
-		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
+		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
+		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
+		Service ottawaService = Service.create(ottawaURL, ottawaQName);
+		ottawa_obj = ottawaService.getPort(Common_Inteface.class);
 
-		ORB orb = ORB.init(args, props);
-
-		org.omg.CORBA.Object objRef;
-
-		objRef = orb.resolve_initial_references("NameService");
-
-		NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-		montreal_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("MTL"));
-		ottawa_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("OTW"));
-		toronto_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("TOR"));
+		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
+		QName torontoQ = new QName("http://server/", "TOR_ImplService");
+		Service torontoService = Service.create(torontoURL, torontoQ);
+		toronto_obj = torontoService.getPort(Common_Inteface.class);
+		
 
 		Runnable task = () -> {
 
@@ -126,20 +156,7 @@ public class Test {
 		
 		new Thread(task3).start();
 		new Thread(task4).start();
-
-/*		Runnable task5 = () -> {
-
-			perform5();
-		};
-
-		Runnable task6 = () -> {
-
-			perform6();
-		};
-
-		new Thread(task5).start();
-		new Thread(task6).start();
-*/		
+		
 	}
 
 }

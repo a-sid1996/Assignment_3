@@ -1,20 +1,15 @@
-package _ServerPackage;
+package ServerPackage;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.nio.file.Paths;
-import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NameComponent;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
-import org.omg.PortableServer.POA;
+import javax.xml.ws.Endpoint;
 
 
 /**
@@ -84,6 +79,8 @@ public class Montreal_Server {
 	public static void main(String args[]) throws Exception {
 
 		Montreal_Class stub1 = new Montreal_Class();
+		Endpoint endpoint = Endpoint.publish("http://localhost:8080/MTL", stub1);
+
 
 		System.out.println(" Montreal server has been started");
 		try {
@@ -120,38 +117,7 @@ public class Montreal_Server {
 
 		new Thread(taskUDP).start();
 
-//		System.out.println("Application Terminating ...");
-		// properties value to help the ORB
-		Properties props = new Properties();
-		props.put("org.omg.CORBA.ORBInitialPort", "1050");
-		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
-		/// ORB orb2 = ORB.init(args, props);
 
-		// create and initialize the ORB
-		ORB orb = ORB.init(args, props);
-		POA rootpoa = (POA) orb.resolve_initial_references("RootPOA");
-		rootpoa.the_POAManager().activate();
-		// create servant and register it with the ORB
-
-		stub1.setORB(orb);
-		// get object reference from the servant
-		org.omg.CORBA.Object ref = rootpoa.servant_to_reference(stub1);
-		// and cast the reference to a CORBA reference
-		Common_Inteface href = Common_IntefaceHelper.narrow(ref);
-
-		// get the root naming context
-		// NameService invokes the transient name service
-		org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
-		// Use NamingContextExt, which is part of the
-		// Interoperable Naming Service (INS) specification.
-		NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-		// bind the Object Reference in Naming
-		String name = "MTL";
-		NameComponent path[] = ncRef.to_name(name);
-		ncRef.rebind(path, href);
-		System.out.println("Montreal Serevr ready and listening ...  ...");
-		// wait for invocations from clients
-		orb.run();
 
 
 	}

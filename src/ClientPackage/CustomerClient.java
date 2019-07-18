@@ -1,21 +1,19 @@
 package ClientPackage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Properties;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import java.util.regex.Pattern;
 
-import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
-import _ServerPackage.Common_Inteface;
-import _ServerPackage.Common_IntefaceHelper;
+import ServerPackage.Common_Inteface;
 
 /**
  * The Class CustomerClient.
@@ -51,18 +49,26 @@ public class CustomerClient {
 	public static void main(String args[]) throws Exception {
 
 	
-		Properties props = new Properties();
-		props.put("org.omg.CORBA.ORBInitialPort", "1050");
-		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
-		ORB orb = ORB.init(args, props);
+//		URL addURL = new URL("http://localhost:8080/addition?wsdl");
+//		QName addQName = new QName("http://impl.service.web.com/", "ImplementationService");
+//		
+//		Service addition = Service.create(addURL, addQName);
+//		additionInterface = addition.getPort(WebInterface.class);
+		
+		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
+		QName montrealQName = new QName("http://server/", "MTL_ImplService");
+		Service montrealService = Service.create(montrealURL, montrealQName);
+		montreal_obj =  montrealService.getPort(Common_Inteface.class);
 
-		// CORBA work
-		org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
-		NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-		montreal_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("MTL"));
-		ottawa_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("OTW"));
-		toronto_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("TOR"));
+		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
+		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
+		Service ottawaService = Service.create(ottawaURL, ottawaQName);
+		ottawa_obj = ottawaService.getPort(Common_Inteface.class);
 
+		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
+		QName torontoQ = new QName("http://server/", "TOR_ImplService");
+		Service torontoService = Service.create(torontoURL, torontoQ);
+		toronto_obj = torontoService.getPort(Common_Inteface.class);
 		
 		Scanner input = new Scanner(System.in);
 

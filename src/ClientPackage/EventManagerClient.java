@@ -1,25 +1,19 @@
 package ClientPackage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Paths;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Properties;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import java.util.regex.Pattern;
 
-import org.omg.CORBA.ORB;
-import org.omg.CosNaming.NamingContextExt;
-import org.omg.CosNaming.NamingContextExtHelper;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
-import _ServerPackage.Common_Inteface;
-import _ServerPackage.Common_IntefaceHelper;
-
+import ServerPackage.Common_Inteface;
 
 /**
  * The Class Client.
@@ -37,14 +31,13 @@ public class EventManagerClient {
 
 	/** The montreal obj. */
 	static Common_Inteface montreal_obj;
-	
+
 	/** The ottawa obj. */
 	static Common_Inteface ottawa_obj;
-	
+
 	/** The toronto obj. */
 	static Common_Inteface toronto_obj;
 
-	
 	/**
 	 * The main method.
 	 *
@@ -54,19 +47,21 @@ public class EventManagerClient {
 	@SuppressWarnings("resource")
 	public static void main(String args[]) throws Exception {
 
-		Properties props = new Properties();
-		props.put("org.omg.CORBA.ORBInitialPort", "1050");
-		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
-		ORB orb = ORB.init(args, props);
+		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
+		QName montrealQName = new QName("http://server/", "MTL_ImplService");
+		Service montrealService = Service.create(montrealURL, montrealQName);
+		montreal_obj =  montrealService.getPort(Common_Inteface.class);
 
-		// CORBA related work
-		// ORB orb = ORB.init(args, null);
-		org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
-		NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-		montreal_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("MTL"));
-		ottawa_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("OTW"));
-		toronto_obj = Common_IntefaceHelper.narrow(ncRef.resolve_str("TOR"));
+		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
+		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
+		Service ottawaService = Service.create(ottawaURL, ottawaQName);
+		ottawa_obj = ottawaService.getPort(Common_Inteface.class);
 
+		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
+		QName torontoQ = new QName("http://server/", "TOR_ImplService");
+		Service torontoService = Service.create(torontoURL, torontoQ);
+		toronto_obj = torontoService.getPort(Common_Inteface.class);
+		
 		Scanner input = new Scanner(System.in);
 
 		String user_ID = null;
@@ -125,13 +120,15 @@ public class EventManagerClient {
 			System.out.println("4. Add an event ");
 			System.out.println("5. Remove a event ");
 			System.out.println("6. List event availabilities ");
-			System.out.println("7. Show menu again ");
+			System.out.println("7. Swap Event ");
+
+			System.out.println("8. Show menu again ");
 
 			int option = input.nextInt();
-			if( option < 1 || option > 8 ) {
+			if (option < 1 || option > 9) {
 				continue menuAgain2;
 			}
-			
+
 			switch (option) {
 			case 1:
 				input.nextLine();
@@ -195,8 +192,8 @@ public class EventManagerClient {
 						customerID2 = user_ID;
 						logger.info("entered as a client with ID" + customerID2);
 					} else {
-							System.out.println(list);
-						
+						System.out.println(list);
+
 						logger.info("Reply:" + list);
 					}
 				} else if (matches_ottawa2) {
@@ -212,7 +209,7 @@ public class EventManagerClient {
 						logger.info("entered as a client with ID" + customerID2);
 					} else {
 						System.out.println(list);
-						
+
 						logger.info("Reply:" + list);
 					}
 
@@ -228,7 +225,7 @@ public class EventManagerClient {
 						customerID2 = user_ID;
 						logger.info("entered as a client with ID" + customerID2);
 					} else {
-							System.out.println(list);
+						System.out.println(list);
 						logger.info("Reply:" + list);
 					}
 
@@ -372,23 +369,54 @@ public class EventManagerClient {
 					logger.info("Request: list eventavailability req to Ottawa server ");
 					logger.info("Parameter:" + eventType4);
 					String reply = ottawa_obj.listEventAvailability(eventType4);
-					
-						System.out.println(reply);
-					
-						logger.info("Reply " + reply);
+
+					System.out.println(reply);
+
+					logger.info("Reply " + reply);
 
 				} else if (matches_toronto) {
 					logger.info("Request: list eventavailability req to Toronto server ");
 					logger.info("Parameter:" + eventType4);
 					String reply = toronto_obj.listEventAvailability(eventType4);
-					
+
 					System.out.println(reply);
 					logger.info("Reply " + reply);
 				}
 
 				break;
+
 			case 7:
+				input.nextLine();
+				System.out.println("Enter ID of customer to perform operation on");
+				String customerID4 = input.nextLine();
+
+				System.out.println("Enter old eventType");
+				String oldEventType = input.nextLine();
+				System.out.println("Enter old eventID");
+				String oldEventID = input.nextLine();
+				System.out.println("Enter new eventType");
+				String newEventType = input.nextLine();
+				System.out.println("Enter new eventID");
+				String newEventID = input.nextLine();
+
+				if (matches_montreal) {
+
+					String reply = montreal_obj.swapEvent(customerID4, oldEventType, oldEventID, newEventType,
+							newEventID);
+					System.out.println(reply);
+				} else if (matches_ottawa) {
+					String reply = ottawa_obj.swapEvent(customerID4, oldEventType, oldEventID, newEventType,
+							newEventID);
+					System.out.println(reply);
+				} else if (matches_toronto) {
+					String reply = toronto_obj.swapEvent(customerID4, oldEventType, oldEventID, newEventType,
+							newEventID);
+					System.out.println(reply);
+				}
+
+			case 8:
 				continue menuAgain2;
+
 			default:
 				System.out.println("Invalid input. Please enter correct choice ");
 				logger.info("Invalid input. Please enter correct choice ");
