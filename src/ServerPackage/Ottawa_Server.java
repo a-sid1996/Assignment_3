@@ -165,7 +165,7 @@ public class Ottawa_Server {
 		new Thread(taskUDP).start();
 
 		Ottawa_Class stub2 = new Ottawa_Class();
-		Endpoint endpoint = Endpoint.publish("http://localhost:8080/OTW", stub2);
+		Endpoint endpoint = Endpoint.publish("http://localhost:8081/OTW", stub2);
 
 		System.out.println(" Ottawa server has been started");
 

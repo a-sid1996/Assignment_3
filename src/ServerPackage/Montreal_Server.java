@@ -20,7 +20,6 @@ public class Montreal_Server {
 	/** The logger. */
 	public static Logger logger = Logger.getLogger("MontrealServer");
 
-	/** The filehandler. */
 	public static FileHandler filehandler = null;
 
 	/**
@@ -80,7 +79,6 @@ public class Montreal_Server {
 
 		Montreal_Class stub1 = new Montreal_Class();
 		Endpoint endpoint = Endpoint.publish("http://localhost:8080/MTL", stub1);
-
 
 		System.out.println(" Montreal server has been started");
 		try {

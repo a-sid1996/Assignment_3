@@ -26,9 +26,9 @@ import javax.jws.soap.SOAPBinding;
 /**
  * The Class Montreal_Class.
  */
-@WebService(endpointInterface = "_ServerPackage.Common_interface")
+@WebService(endpointInterface = "ServerPackage.Common_Interface")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public class Montreal_Class implements Common_Inteface {
+public class Montreal_Class implements Common_Interface {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;

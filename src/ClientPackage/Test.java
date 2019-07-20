@@ -5,7 +5,8 @@ import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-import ServerPackage.Common_Inteface;
+
+import ServerPackage.Common_Interface;
 
 /**
  * The Class Test.
@@ -13,13 +14,13 @@ import ServerPackage.Common_Inteface;
 public class Test {
 	
 	/** The montreal obj. */
-	static Common_Inteface montreal_obj;
+	static Common_Interface montreal_obj;
 	
 	/** The ottawa obj. */
-	static Common_Inteface ottawa_obj;
+	static Common_Interface ottawa_obj;
 	
 	/** The toronto obj. */
-	static Common_Inteface toronto_obj;
+	static Common_Interface toronto_obj;
 	
 	/**
 	 * Perform 1.
@@ -118,17 +119,17 @@ public class Test {
 		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
 		QName montrealQName = new QName("http://server/", "MTL_ImplService");
 		Service montrealService = Service.create(montrealURL, montrealQName);
-		montreal_obj =  montrealService.getPort(Common_Inteface.class);
+		montreal_obj =  montrealService.getPort(Common_Interface.class);
 
 		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
 		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
 		Service ottawaService = Service.create(ottawaURL, ottawaQName);
-		ottawa_obj = ottawaService.getPort(Common_Inteface.class);
+		ottawa_obj = ottawaService.getPort(Common_Interface.class);
 
 		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
 		QName torontoQ = new QName("http://server/", "TOR_ImplService");
 		Service torontoService = Service.create(torontoURL, torontoQ);
-		toronto_obj = torontoService.getPort(Common_Inteface.class);
+		toronto_obj = torontoService.getPort(Common_Interface.class);
 		
 
 		Runnable task = () -> {

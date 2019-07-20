@@ -52,3 +52,15 @@ Jul 16, 2019 10:57:14 AM _ServerPackage.Montreal_Class initialize
 INFO: Initilize Implementations 
 Jul 16, 2019 10:57:14 AM _ServerPackage.Montreal_Class initialize
 INFO: Server is initilized.
+Jul 20, 2019 3:44:14 PM ServerPackage.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 20, 2019 3:44:14 PM ServerPackage.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 20, 2019 3:44:14 PM ServerPackage.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 20, 2019 3:48:03 PM ServerPackage.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 20, 2019 3:48:03 PM ServerPackage.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 20, 2019 3:48:03 PM ServerPackage.Montreal_Class initialize
+INFO: Server is initilized.

@@ -25,9 +25,9 @@ import javax.jws.soap.SOAPBinding;
 /**
  * The Class Ottawa_Class.
  */
-@WebService(endpointInterface = "_ServerPackage.Common_interface")
+@WebService(endpointInterface = "ServerPackage.Common_Interface")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public class Ottawa_Class implements Common_Inteface{
+public class Ottawa_Class implements Common_Interface{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -1144,9 +1144,7 @@ public class Ottawa_Class implements Common_Inteface{
 		return result.get();
 	}
 	
-	/* (non-Javadoc)
-	 * @see _ServerPackage.Common_IntefaceOperations#swapEvent(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
-	 */
+	
 	public String swapEvent(String customerID, String oldEventType, String oldEventID, String newEventType, String newEventID) {
 
 		if( !( oldEventID.substring(0, 3).equalsIgnoreCase("OTW") || oldEventID.substring(0, 3).equalsIgnoreCase("TOR") || oldEventID.substring(0, 3).equalsIgnoreCase("MTL") || newEventID.substring(0, 3).equalsIgnoreCase("OTW") || newEventID.substring(0, 3).equalsIgnoreCase("MTL") || newEventID.substring(0, 3).equalsIgnoreCase("TOR") ) ) {

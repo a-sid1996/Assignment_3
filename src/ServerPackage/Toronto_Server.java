@@ -94,10 +94,10 @@ public class Toronto_Server {
 		new Thread(taskUDP).start();
 
 		Toronto_Class stub3 = new Toronto_Class();
-		Endpoint endpoint = Endpoint.publish("http://localhost:8080/TOR", stub3);
+		Endpoint endpoint = Endpoint.publish("http://localhost:8082/TOR", stub3);
 
 	
-		System.out.println(" Toronot server has been started");
+		System.out.println("Toronto server has been started");
 
 		try {
 			// This block configure the logger with handler and formatter

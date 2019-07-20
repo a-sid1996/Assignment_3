@@ -9,7 +9,7 @@ import javax.jws.soap.SOAPBinding;
  */
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public interface Common_Inteface {
+public interface Common_Interface {
 	
 	/**
 	 * Gets the booking schedule.
