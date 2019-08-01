@@ -71,6 +71,7 @@ public class CustomerClient {
 //		ottawa_obj = ottawaService.getPort(Common_Interface.class);
 //		toronto_obj = torontoService.getPort(Common_Interface.class);
 
+		
 		URL montrealURL = new URL("http://localhost:8080/montreal?wsdl");
 		QName montrealQName = new QName("http://impl.service.web.com/", "Montreal_ClassService");
 		Service montrealService = Service.create(montrealURL, montrealQName);
@@ -86,7 +87,6 @@ public class CustomerClient {
 		Service torontoService = Service.create(torontoURL, torontoQName);
 		montreal_obj = torontoService.getPort(Common_Interface.class);
 
-		
 		Scanner input = new Scanner(System.in);
 
 		String user_ID = null;
