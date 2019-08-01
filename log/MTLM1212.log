@@ -1,0 +1,8 @@
+Jul 31, 2019 7:15:05 PM com.web.client.EventManagerClient main
+INFO: User id entered is MTLM1212
+Jul 31, 2019 7:15:05 PM com.web.client.EventManagerClient main
+INFO: Entered as a Manager with IDMTLM1212
+Jul 31, 2019 7:16:04 PM com.web.client.EventManagerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 7:16:04 PM com.web.client.EventManagerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLE260619 and eventtypeSeminar

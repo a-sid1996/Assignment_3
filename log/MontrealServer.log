@@ -64,3 +64,27 @@ Jul 20, 2019 3:48:03 PM ServerPackage.Montreal_Class initialize
 INFO: Initilize Implementations 
 Jul 20, 2019 3:48:03 PM ServerPackage.Montreal_Class initialize
 INFO: Server is initilized.
+Jul 31, 2019 6:14:32 PM ServerPackage.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 6:14:32 PM ServerPackage.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 6:14:32 PM ServerPackage.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 7:09:37 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 7:09:37 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 7:09:37 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 7:26:32 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 7:26:32 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 7:26:32 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 7:31:26 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 7:31:26 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 7:31:26 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.

@@ -1,12 +1,11 @@
-package ClientPackage;
+package com.web.tests;
 
 import java.net.URL;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-
-import ServerPackage.Common_Interface;
+import com.web.service.Common_Interface;
 
 /**
  * The Class Test.

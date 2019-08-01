@@ -56,3 +56,31 @@ Jul 16, 2019 7:08:12 AM ClientPackage.CustomerClient main
 INFO: Parameter: student ID: TORC1111
 Jul 16, 2019 7:08:12 AM ClientPackage.CustomerClient main
 INFO: Reply:[------>  Following is the booking schedule for the customer, Conferences-, 2, OTWE080619, OTWE110619, Seminars-, 0, Trade Shows-, 0]
+Jul 31, 2019 7:26:57 PM com.web.client.CustomerClient main
+INFO: User id entered is TORC1111
+Jul 31, 2019 7:26:57 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDTORC1111
+Jul 31, 2019 7:27:13 PM com.web.client.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 31, 2019 7:27:13 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID TORE260919 and eventtypeSeminar
+Jul 31, 2019 7:33:48 PM com.web.client.CustomerClient main
+INFO: User id entered is TORC1111
+Jul 31, 2019 7:33:48 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDTORC1111
+Jul 31, 2019 7:33:59 PM com.web.client.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 31, 2019 7:33:59 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID TORE260919 and eventtypeSeminar
+Jul 31, 2019 7:41:03 PM com.web.client.CustomerClient main
+INFO: User id entered is TorC1111
+Jul 31, 2019 7:41:03 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDTorC1111
+Jul 31, 2019 7:43:26 PM com.web.client.CustomerClient main
+INFO: User id entered is TORC1111
+Jul 31, 2019 7:43:26 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDTORC1111
+Jul 31, 2019 7:43:43 PM com.web.client.CustomerClient main
+INFO: Request to ottawa book event 
+Jul 31, 2019 7:43:43 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID TORC1111 eventID TORE220819 and eventtypeConference

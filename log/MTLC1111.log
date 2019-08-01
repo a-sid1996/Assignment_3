@@ -1,0 +1,8 @@
+Jul 31, 2019 7:31:50 PM com.web.client.CustomerClient main
+INFO: User id entered is MTLC1111
+Jul 31, 2019 7:31:50 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDMTLC1111
+Jul 31, 2019 7:32:10 PM com.web.client.CustomerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 7:32:10 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLE260919 and eventtypeSeminar

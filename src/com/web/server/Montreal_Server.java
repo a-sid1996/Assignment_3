@@ -1,4 +1,4 @@
-package ServerPackage;
+package com.web.server;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -11,12 +11,16 @@ import java.util.logging.SimpleFormatter;
 
 import javax.xml.ws.Endpoint;
 
+import com.web.service.impl.Montreal_Class;
+
 
 /**
  * The Class Montreal_Server.
  */
 public class Montreal_Server {
 
+	public static Montreal_Class stub1;
+	
 	/** The logger. */
 	public static Logger logger = Logger.getLogger("MontrealServer");
 
@@ -77,8 +81,8 @@ public class Montreal_Server {
 	 */
 	public static void main(String args[]) throws Exception {
 
-		Montreal_Class stub1 = new Montreal_Class();
-		Endpoint endpoint = Endpoint.publish("http://localhost:8080/MTL", stub1);
+		stub1 = new Montreal_Class();
+		Endpoint endpoint = Endpoint.publish("http://localhost:8080/montreal", stub1);
 
 		System.out.println(" Montreal server has been started");
 		try {

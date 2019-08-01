@@ -1,4 +1,4 @@
-package ClientPackage;
+package com.web.client;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-import ServerPackage.Common_Interface;
+import com.web.service.Common_Interface;
 
 /**
  * The Class CustomerClient.
@@ -55,20 +55,37 @@ public class CustomerClient {
 //		Service addition = Service.create(addURL, addQName);
 //		additionInterface = addition.getPort(WebInterface.class);
 		
-		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
-		QName montrealQName = new QName("http://server/", "MTL_ImplService");
-		Service montrealService = Service.create(montrealURL, montrealQName);
-		montreal_obj =  montrealService.getPort(Common_Interface.class);
+//		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
+//		QName montrealQName = new QName("http://server/", "MTL_ImplService");
+//		Service montrealService = Service.create(montrealURL, montrealQName);
+//
+//		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
+//		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
+//		Service ottawaService = Service.create(ottawaURL, ottawaQName);
+//
+//		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
+//		QName torontoQ = new QName("http://server/", "TOR_ImplService");
+//		Service torontoService = Service.create(torontoURL, torontoQ);
+//		
+//		montreal_obj =  montrealService.getPort(Common_Interface.class);
+//		ottawa_obj = ottawaService.getPort(Common_Interface.class);
+//		toronto_obj = torontoService.getPort(Common_Interface.class);
 
-		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
-		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
+		URL montrealURL = new URL("http://localhost:8080/montreal?wsdl");
+		QName montrealQName = new QName("http://impl.service.web.com/", "Montreal_ClassService");
+		Service montrealService = Service.create(montrealURL, montrealQName);
+		montreal_obj = montrealService.getPort(Common_Interface.class);
+
+		URL ottawaURL = new URL("http://localhost:8081/ottawa?wsdl");
+		QName ottawaQName = new QName("http://impl.service.web.com/", "Ottawa_ClassService");
 		Service ottawaService = Service.create(ottawaURL, ottawaQName);
 		ottawa_obj = ottawaService.getPort(Common_Interface.class);
 
-		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
-		QName torontoQ = new QName("http://server/", "TOR_ImplService");
-		Service torontoService = Service.create(torontoURL, torontoQ);
-		toronto_obj = torontoService.getPort(Common_Interface.class);
+		URL torontoURL = new URL("http://localhost:8082/toronto?wsdl");
+		QName torontoQName = new QName("http://impl.service.web.com/", "Toronto_ClassService");
+		Service torontoService = Service.create(torontoURL, torontoQName);
+		montreal_obj = torontoService.getPort(Common_Interface.class);
+
 		
 		Scanner input = new Scanner(System.in);
 
@@ -165,7 +182,7 @@ public class CustomerClient {
 					logger.info("Request to ottawa book event ");
 					logger.info("Parameters passed are customerID " + customerID + " eventID " + eventID
 							+ " and eventtype" + eventType);
-					String reply = toronto_obj.bookEvent(customerID, eventID, eventType);
+					String reply = toronto_obj.bookEvent(customerID, eventID, eventType).trim();
 					System.out.println(reply);
 					logger.info("Reply " + reply);
 

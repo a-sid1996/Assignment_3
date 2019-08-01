@@ -1,4 +1,4 @@
-package ServerPackage;
+package com.web.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,6 +19,9 @@ import java.util.regex.Pattern;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
+import com.web.server.Montreal_Server;
+import com.web.service.Common_Interface;
+
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
@@ -26,8 +29,10 @@ import javax.jws.soap.SOAPBinding;
 /**
  * The Class Montreal_Class.
  */
-@WebService(endpointInterface = "ServerPackage.Common_Interface")
+@WebService(endpointInterface = "com.web.service.Common_Interface")
+
 @SOAPBinding(style = SOAPBinding.Style.RPC)
+
 public class Montreal_Class implements Common_Interface {
 
 	/** The Constant serialVersionUID. */
@@ -257,7 +262,7 @@ public class Montreal_Class implements Common_Interface {
 			buff.add("The customerID entered is not in our records.");
 		}
 		
-		return buff.toString();
+		return buff.toString().trim();
 	}
 
 	/*
@@ -339,17 +344,17 @@ public class Montreal_Class implements Common_Interface {
 				if (out_check.containsKey(eventID.substring(6, 8))) {
 					if (Integer.valueOf(out_check.get(eventID.substring(6, 8))) > 2) {
 						return "User already registered for 3 events outside their city in " + eventID.substring(6, 8)
-						+ " month.";
+						+ " month.".trim();
 					}
 				}
 
 				if (!client_Montreal_info.containsKey(customerID)) {
-					return "customerID entered is invalid.";
+					return "customerID entered is invalid.".trim();
 				} else {
 					if (!client_Montreal_info.get(customerID).containsKey(eventType)) {
-						return "eventType entered is invalid.";
+						return "eventType entered is invalid.".trim();
 					} else if (client_Montreal_info.get(customerID).get(eventType).contains(eventID)) {
-						return "customer already registered for this event.";
+						return "customer already registered for this event.".trim();
 					} else {
 
 						if (eventID.substring(0, 3).equalsIgnoreCase("TOR")) {
@@ -368,9 +373,9 @@ public class Montreal_Class implements Common_Interface {
 								n++;
 								client_Montreal_info.get(customerID).get(eventType).set(0, String.valueOf(n));
 								client_Montreal_info.get(customerID).get(eventType).add(eventID);
-								return "Event booked successfully.";
+								return "Event booked successfully.".trim();
 							} else {
-								return response;
+								return response.trim();
 							}
 
 						} else if (eventID.substring(0, 3).equalsIgnoreCase("OTW")) {
@@ -389,9 +394,9 @@ public class Montreal_Class implements Common_Interface {
 								n++;
 								client_Montreal_info.get(customerID).get(eventType).set(0, String.valueOf(n));
 								client_Montreal_info.get(customerID).get(eventType).add(eventID);
-								return "Event booked successfully.";
+								return "Event booked successfully.".trim();
 							} else {
-								return response;
+								return response.trim();
 							}
 
 						}
@@ -409,7 +414,7 @@ public class Montreal_Class implements Common_Interface {
 						if (client_Montreal_info.containsKey(customerID)) {
 
 							if (client_Montreal_info.get(customerID).get(eventType).contains(eventID)) {
-								return "Customer is already booked for this event";
+								return "Customer is already booked for this event".trim();
 							}
 
 							int val = Integer.parseInt(client_Montreal_info.get(customerID).get(eventType).get(0)) + 1;
@@ -418,25 +423,25 @@ public class Montreal_Class implements Common_Interface {
 							client_Montreal_info.get(customerID).get(eventType).add(eventID);
 
 						} else {
-							return "The customerID entered is not valid.";
+							return "The customerID entered is not valid.".trim();
 						}
 
 						int val = Integer.parseInt(Montreal_hashmap.get(eventType).get(eventID).get(1)) + 1;
 						Montreal_hashmap.get(eventType).get(eventID).remove(1);
 						Montreal_hashmap.get(eventType).get(eventID).add(1, Integer.toString(val));
-						return "Event booked successfully.";
+						return "Event booked successfully.".trim();
 
 					} else {
-						return "Sorry the " + eventType + " with " + eventID + " is full.";
+						return "Sorry the " + eventType + " with " + eventID + " is full.".trim();
 					}
 				} else {
-					return "There is no " + eventType + " corresponding to the eventID you entered.";
+					return "There is no " + eventType + " corresponding to the eventID you entered.".trim();
 				}
 			}
-			return "Entered information is invalid.";
+			return "Entered information is invalid.".trim();
 
 		} else {
-			return "cutomerID entered is not valid.";
+			return "cutomerID entered is not valid.".trim();
 		}
 	}
 
@@ -453,13 +458,13 @@ public class Montreal_Class implements Common_Interface {
 			if (eventID.substring(0, 3).equalsIgnoreCase("OTW") || eventID.substring(0, 3).equalsIgnoreCase("TOR")) {
 
 				if (!client_Montreal_info.containsKey(customerID)) {
-					resp = "customerID entered is not valid.";
+					resp = "customerID entered is not valid.".trim();
 				} else {
 					if (!client_Montreal_info.get(customerID).containsKey(eventType)) {
-						resp = "EventType entered is invalid.";
+						resp = "EventType entered is invalid.".trim();
 					} else {
 						if (!client_Montreal_info.get(customerID).get(eventType).contains(eventID)) {
-							resp = "Customer is not registered in event corresponding with entered eventID and evenType.";
+							resp = "Customer is not registered in event corresponding with entered eventID and evenType.".trim();
 						} else {
 
 							String response = null;
@@ -478,9 +483,9 @@ public class Montreal_Class implements Common_Interface {
 									int n = Integer.valueOf(client_Montreal_info.get(customerID).get(eventType).get(0)) - 1;
 									client_Montreal_info.get(customerID).get(eventType).set(0, String.valueOf(n));
 
-									return "Customer has been removed from this event.";
+									return "Customer has been removed from this event.".trim();
 								} else {
-									return response;
+									return response.trim();
 								}
 
 							} else if (eventID.substring(0, 3).equalsIgnoreCase("OTW")) {
@@ -497,9 +502,9 @@ public class Montreal_Class implements Common_Interface {
 									int n = Integer.valueOf(client_Montreal_info.get(customerID).get(eventType).get(0)) - 1;
 									client_Montreal_info.get(customerID).get(eventType).set(0, String.valueOf(n));
 
-									return "Customer has been removed from this event.";
+									return "Customer has been removed from this event.".trim();
 								} else {
-									return response;
+									return response.trim();
 								}
 
 							}
@@ -511,17 +516,17 @@ public class Montreal_Class implements Common_Interface {
 			} else if (eventID.substring(0, 3).equalsIgnoreCase("MTL")) {
 
 				if (!client_Montreal_info.containsKey(customerID)) {
-					resp = "customerID entered is not valid.";
+					resp = "customerID entered is not valid.".trim();
 				} else {
 					if (!client_Montreal_info.get(customerID).containsKey(eventType)) {
-						resp = "EventType entered is invalid.";
+						resp = "EventType entered is invalid.".trim();
 					} else {
 						if (!client_Montreal_info.get(customerID).get(eventType).contains(eventID)) {
-							resp = "Customer is not registered in event corresponding with entered eventID and eventType.";
+							resp = "Customer is not registered in event corresponding with entered eventID and eventType.".trim();
 						} else {
 
 							if (!Montreal_hashmap.get(eventType).containsKey(eventID)) {
-								resp = "No event with entered eventID entered found.";
+								resp = "No event with entered eventID entered found.".trim();
 							} else {
 
 								int a = Integer.valueOf(Montreal_hashmap.get(eventType).get(eventID).get(1)) + 1;
@@ -530,7 +535,7 @@ public class Montreal_Class implements Common_Interface {
 								int n = Integer.valueOf(client_Montreal_info.get(customerID).get(eventType).get(0)) - 1;
 								client_Montreal_info.get(customerID).get(eventType).set(0, String.valueOf(n));
 
-								resp = "Customer has been removed from this event.";
+								resp = "Customer has been removed from this event.".trim();
 
 							}
 						}
@@ -538,12 +543,12 @@ public class Montreal_Class implements Common_Interface {
 				}
 
 			} else {
-				resp = "Entered eventID is invalid.";
+				resp = "Entered eventID is invalid.".trim();
 			}
-			return resp;
+			return resp.trim();
 
 		} else {
-			return "Entered eventID is invalid.";
+			return "Entered eventID is invalid.".trim();
 		}
 
 	}
@@ -561,32 +566,32 @@ public class Montreal_Class implements Common_Interface {
 		if( eventType.equalsIgnoreCase("Seminar") || eventType.equalsIgnoreCase("Conference")
 				|| eventType.equalsIgnoreCase("TradeShow") ) {
 			if (eventID.substring(0, 3).equalsIgnoreCase("OTW") || eventID.substring(0, 3).equalsIgnoreCase("TOR")) {
-				resp = "You cannot add this event since it's not in your city.";
+				resp = "You cannot add this event since it's not in your city.".trim();
 			} else if (eventID.substring(0, 3).equalsIgnoreCase("MTL")) {
 				if( eventID.length() != 10) {
-					resp = "Entered eventID is invalid.";
+					resp = "Entered eventID is invalid.".trim();
 				} else {
 					
 					if( Montreal_hashmap.get(eventType).containsKey(eventID) ) {
 						int val = Integer.valueOf( Montreal_hashmap.get(eventType).get(eventID).get(0) ) + 1;
 						Montreal_hashmap.get(eventType).get(eventID).remove(0);
 						Montreal_hashmap.get(eventType).get(eventID).add(0, String.valueOf(val));
-						resp = "Event was already added so booking capacity updated.";
+						resp = "Event was already added so booking capacity updated.".trim();
 					} else {
 						ArrayList<String> temp = new ArrayList<String>();
 						Collections.addAll(temp, bookingCapacity, String.valueOf(0));
 						Montreal_hashmap.get(eventType).put(eventID, temp);
-						resp = "Event successfully added.";
+						resp = "Event successfully added.".trim();
 					}
 					
 				}
 			}
 
 		} else {
-			resp = "Entered event type is invalid.";
+			resp = "Entered event type is invalid.".trim();
 		}
 
-		return resp;
+		return resp.trim();
 
 	}
 
@@ -618,20 +623,20 @@ public class Montreal_Class implements Common_Interface {
 					check_with_otw(eventType, eventID);
 					check_with_tor(eventType, eventID);
 				
-					return "The event was successfully removed.";
+					return "The event was successfully removed.".trim();
 				} else {
-					return "The event with eventID you wanted to remove does not exist.";
+					return "The event with eventID you wanted to remove does not exist.".trim();
 				}
 
 			} else {
-				return "The eventType you entered is invalid.";
+				return "The eventType you entered is invalid.".trim();
 			}
 
 		} else {
 			if( eventID.substring(0, 3).equalsIgnoreCase("TOR") || eventID.substring(0, 3).equalsIgnoreCase("OTW") ) {
-				return "You cannot remove event from this city.";
+				return "You cannot remove event from this city.".trim();
 			} else {
-				return "Invalid eventID";
+				return "Invalid eventID".trim();
 			}
 		}
 
@@ -659,7 +664,7 @@ public class Montreal_Class implements Common_Interface {
 			}
 		}
 		String resp = null;
-		resp = "done";
+		resp = "done".trim();
 		
 		byte[] resp_other = null;
 		DatagramSocket socket_to_other = null;
@@ -741,7 +746,7 @@ public class Montreal_Class implements Common_Interface {
 			}
 		}		
 
-		return buff.toString();
+		return buff.toString().trim();
 	}
 
 	/**
@@ -754,7 +759,7 @@ public class Montreal_Class implements Common_Interface {
 		ArrayList<String> a = new ArrayList<String>();
 		String resp = null;
 		if( !Montreal_hashmap.containsKey(eventType) ) {
-			resp = "Invalid";
+			resp = "Invalid".trim();
 		} else {
 			for( Map.Entry<String, ArrayList<String>> entry : Montreal_hashmap.get(eventType).entrySet()) {
 				
@@ -775,7 +780,7 @@ public class Montreal_Class implements Common_Interface {
 		}
 
 		if(resp == null) {
-			resp = "Invalid";
+			resp = "Invalid".trim();
 		}
 		byte[] resp_other = null;
 		DatagramSocket socket_to_other = null;
@@ -817,16 +822,16 @@ public class Montreal_Class implements Common_Interface {
 		String resp = null;
 
 		if (!Montreal_hashmap.containsKey(info[1])) {
-			resp = "EventType entered is invalid.";
+			resp = "EventType entered is invalid.".trim();
 		} else {
 			if (!Montreal_hashmap.get(info[1]).containsKey(info[2])) {
-				resp = "Event with eventID " + info[2] + " does not exist.";
+				resp = "Event with eventID " + info[2] + " does not exist.".trim();
 			} else {
 				int b = Integer.valueOf(Montreal_hashmap.get(info[1]).get(info[2]).get(1)) - 1;
 				Montreal_hashmap.get(info[1]).get(info[2]).remove(1);
 				Montreal_hashmap.get(info[1]).get(info[2]).add(1, String.valueOf(b));
 //				System.out.println(Montreal_hashmap);
-				resp = "N";
+				resp = "N".trim();
 			}
 		}
 
@@ -873,16 +878,16 @@ public class Montreal_Class implements Common_Interface {
 						.valueOf(Montreal_hashmap.get(info[1]).get(info[2]).get(1))) {
 					int n = Integer.valueOf(Montreal_hashmap.get(info[1]).get(info[2]).get(1));
 					Montreal_hashmap.get(info[1]).get(info[2]).set(1, String.valueOf(n + 1));
-					resp = "Y";
+					resp = "Y".trim();
 
 				} else {
-					resp = "Event you're trying to book is full.";
+					resp = "Event you're trying to book is full.".trim();
 				}
 			} else {
-				resp = "Event with eventID " + info[2] + " does not exist.";
+				resp = "Event with eventID " + info[2] + " does not exist.".trim();
 			}
 		} else {
-			resp = "EventType entered is invalid";
+			resp = "EventType entered is invalid".trim();
 		}
 
 		byte[] resp_other = null;
@@ -970,7 +975,7 @@ public class Montreal_Class implements Common_Interface {
 		Future<String> result = exec.submit(call);
 
 		byte[] mtl_req = null;
-		String mtl_request = customerID + " " + eventType + " " + eventID + " " + action + " " + "MTL";
+		String mtl_request = customerID + " " + eventType + " " + eventID + " " + action + " " + "MTL".trim();
 
 		try {
 
@@ -993,7 +998,7 @@ public class Montreal_Class implements Common_Interface {
 		}
 
 		exec.shutdown();
-		return result.get();
+		return result.get().trim();
 	}
 
 	/**
@@ -1154,37 +1159,37 @@ public class Montreal_Class implements Common_Interface {
 	public String swapEvent(String customerID, String oldEventType, String oldEventID, String newEventType, String newEventID) {
 
 		if( !( oldEventID.substring(0, 3).equalsIgnoreCase("OTW") || oldEventID.substring(0, 3).equalsIgnoreCase("TOR") || oldEventID.substring(0, 3).equalsIgnoreCase("MTL") || newEventID.substring(0, 3).equalsIgnoreCase("OTW") || newEventID.substring(0, 3).equalsIgnoreCase("MTL") || newEventID.substring(0, 3).equalsIgnoreCase("TOR") ) ) {
-			return "Entered eventID is invalid.";			
+			return "Entered eventID is invalid.".trim();			
 		}
 		
 		if( !( oldEventType.equalsIgnoreCase("TradeShow") || oldEventType.equalsIgnoreCase("Conference") || oldEventType.equalsIgnoreCase("Seminar") || newEventType.equalsIgnoreCase("TradeShow") || newEventType.equalsIgnoreCase("Conference") || newEventType.equalsIgnoreCase("Seminar") ) ) {
-			return "Entered eventType is invalid";
+			return "Entered eventType is invalid".trim();
 		}
 		
 		if( !( client_Montreal_info.containsKey(customerID) ) ) {
-			return "customerID entered is invalid";
+			return "customerID entered is invalid".trim();
 		}
 		
 		if( !( client_Montreal_info.get(customerID).get(oldEventType).contains(oldEventID) ) ) {
-			return "customer is not registered in entered event";
+			return "customer is not registered in entered event".trim();
 		}
 		
 		String rep = bookEvent(customerID, newEventID, newEventType);
 		if(rep.equalsIgnoreCase("Event booked successfully.")) {
 			cancelEvent(customerID, oldEventID, oldEventType);
-			return "Events swapped successfully";
+			return "Events swapped successfully".trim();
 		} else {
 			String res = cancelEvent(customerID, oldEventID, oldEventType);
 			if(res.equalsIgnoreCase("Customer has been removed from this event.")) {
 				String res1 = bookEvent(customerID, newEventID, newEventType);
 				if(res1.equalsIgnoreCase("Event booked successfully.")) {
-					return "Events swapped successfully";
+					return "Events swapped successfully".trim();
 				} else {
 					bookEvent(customerID, oldEventID, oldEventType);
-					return "Events were not swapped since "+res1;
+					return "Events were not swapped since "+res1.trim();
 				}
 			} else {
-				return res;
+				return res.trim();
 			}
 		}
 		
