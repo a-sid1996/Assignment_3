@@ -286,6 +286,20 @@ public class Ottawa_Class implements Common_Interface{
 	 * java.lang.String, java.lang.String)
 	 */
 	public String bookEvent(String customerID, String eventID, String eventType) {
+		if( !client_Ottawa_info.containsKey(customerID)) {
+			HashMap<String, ArrayList<String>> client_info_sub_sub = new HashMap<String, ArrayList<String>>();
+			ArrayList<String> empty = new ArrayList<String>();
+			ArrayList<String> empty1 = new ArrayList<String>();
+			ArrayList<String> empty2 = new ArrayList<String>();
+
+			empty.add(String.valueOf(0));
+			empty1.add(String.valueOf(0));
+			empty2.add(String.valueOf(0));
+			client_info_sub_sub.put("TradeShow", empty);
+			client_info_sub_sub.put("Seminar", empty1);
+			client_info_sub_sub.put("Conference", empty2);
+			client_Ottawa_info.put(customerID, client_info_sub_sub);
+		}
 
 		if(client_Ottawa_info.containsKey(customerID)){
 				if (eventID.substring(0, 3).equalsIgnoreCase("TOR") || eventID.substring(0, 3).equalsIgnoreCase("MTL")) {

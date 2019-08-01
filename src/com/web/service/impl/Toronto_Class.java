@@ -280,174 +280,196 @@ public class Toronto_Class implements Common_Interface{
 	 * java.lang.String, java.lang.String)
 	 */
 	public String bookEvent(String customerID, String eventID, String eventType) {
-System.out.println("HERE ");
-		if (eventID.substring(0, 3).equalsIgnoreCase("OTW") || eventID.substring(0, 3).equalsIgnoreCase("MTL")) {
-			HashMap<String, String> out_check = new HashMap<String, String>();
+		
+		if( !client_Toronto_info.containsKey(customerID)) {
+			HashMap<String, ArrayList<String>> client_info_sub_sub = new HashMap<String, ArrayList<String>>();
+			ArrayList<String> empty = new ArrayList<String>();
+			ArrayList<String> empty1 = new ArrayList<String>();
+			ArrayList<String> empty2 = new ArrayList<String>();
 
-			for (int i = 1; i < client_Toronto_info.get(customerID).get("Conference").size(); i++) {
-
-				if (Pattern.matches(".*MTL.*", client_Toronto_info.get(customerID).get("Conference").get(i))
-						|| Pattern.matches(".*OTW.*", client_Toronto_info.get(customerID).get("Conference").get(i))) {
-
-					if (out_check.containsKey(
-							client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8))) {
-						int num = Integer.valueOf(out_check
-								.get(client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8)));
-						num++;
-						out_check.put(client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8),
-								String.valueOf(num));
-					} else {
-						out_check.put(client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8),
-								String.valueOf(1));
-					}
-
-				}
-
-			}
-
-			for (int i = 1; i < client_Toronto_info.get(customerID).get("Seminar").size(); i++) {
-
-				if (Pattern.matches(".*MTL.*", client_Toronto_info.get(customerID).get("Seminar").get(i))
-						|| Pattern.matches(".*OTW.*", client_Toronto_info.get(customerID).get("Seminar").get(i))) {
-
-					if (out_check
-							.containsKey(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8))) {
-						int num = Integer.valueOf(out_check
-								.get(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8)));
-						num++;
-						out_check.put(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8),
-								String.valueOf(num));
-					} else {
-						out_check.put(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8),
-								String.valueOf(1));
-					}
-
-				}
-
-			}
-
-			for (int i = 1; i < client_Toronto_info.get(customerID).get("TradeShow").size(); i++) {
-
-				if (Pattern.matches(".*MTL.*", client_Toronto_info.get(customerID).get("TradeShow").get(i))
-						|| Pattern.matches(".*OTW.*", client_Toronto_info.get(customerID).get("TradeShow").get(i))) {
-
-					if (out_check
-							.containsKey(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8))) {
-						int num = Integer.valueOf(out_check
-								.get(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8)));
-						num++;
-						out_check.put(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8),
-								String.valueOf(num));
-					} else {
-						out_check.put(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8),
-								String.valueOf(1));
-					}
-
-				}
-
-			}
-
-			if (out_check.containsKey(eventID.substring(6, 8))) {
-				if (Integer.valueOf(out_check.get(eventID.substring(6, 8))) > 2) {
-					return "User already registered for 3 events outside their city in " + eventID.substring(6, 8)
-						+ " month.".trim();
-				}
-			}
-			
-//			System.out.println(out_check);
-			
-			if (!client_Toronto_info.containsKey(customerID)) {
-				return "customerID entered is invalid.".trim();
-			} else {
-				if (!client_Toronto_info.get(customerID).containsKey(eventType)) {
-					return "eventType entered is invalid.".trim();
-				} else if (client_Toronto_info.get(customerID).get(eventType).contains(eventID)) {
-					return "customer already registered for this event.".trim();
-				} else {
-
-					if (eventID.substring(0, 3).equalsIgnoreCase("OTW")) {
-
-						String response = null;
-						try {
-							response = check_with(customerID, eventType, eventID, "check", "OTW");
-
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-
-						if (response.equals("Y")) {
-
-							int n = Integer.valueOf(client_Toronto_info.get(customerID).get(eventType).get(0));
-							n++;
-							client_Toronto_info.get(customerID).get(eventType).set(0, String.valueOf(n));
-							client_Toronto_info.get(customerID).get(eventType).add(eventID);
-//							System.out.println(client_Toronto_info);
-							return "Event booked successfully.".trim();
-						} else {
-							return response.trim();
-						}
-
-					} else if (eventID.substring(0, 3).equalsIgnoreCase("MTL")) {
-
-						String response = null;
-						try {
-							response = check_with(customerID, eventType, eventID, "check", "MTL");
-
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-
-						if (response.equals("Y")) {
-
-							int n = Integer.valueOf(client_Toronto_info.get(customerID).get(eventType).get(0));
-							n++;
-							client_Toronto_info.get(customerID).get(eventType).set(0, String.valueOf(n));
-							client_Toronto_info.get(customerID).get(eventType).add(eventID);
-//							System.out.println(client_Toronto_info);
-							return "Event booked successfully.".trim();
-						} else {
-							return response.trim();
-						}
-
-					}
-
-				}
-			}			
-//			return "HERE";
-
-		} else if (eventID.substring(0, 3).equalsIgnoreCase("TOR")) {
-			if (Toronto_hashmap.get(eventType).containsKey(eventID)) {
-				if (Integer.parseInt(Toronto_hashmap.get(eventType).get(eventID).get(0)) > Integer
-						.parseInt(Toronto_hashmap.get(eventType).get(eventID).get(1))) {
-
-					if (client_Toronto_info.containsKey(customerID)) {
-
-						if (client_Toronto_info.get(customerID).get(eventType).contains(eventID)) {
-							return "Customer is already booked for this event".trim();
-						}
-
-						int val = Integer.parseInt(client_Toronto_info.get(customerID).get(eventType).get(0)) + 1;
-						client_Toronto_info.get(customerID).get(eventType).remove(0);
-						client_Toronto_info.get(customerID).get(eventType).add(0, Integer.toString(val));
-						client_Toronto_info.get(customerID).get(eventType).add(eventID);
-
-					} else {
-						return "The customerID entered is not valid.".trim();
-					}
-
-					int val = Integer.parseInt(Toronto_hashmap.get(eventType).get(eventID).get(1)) + 1;
-					Toronto_hashmap.get(eventType).get(eventID).remove(1);
-					Toronto_hashmap.get(eventType).get(eventID).add(1, Integer.toString(val));
-					return "Event booked successfully.";
-
-				} else {
-					return "Sorry the " + eventType + " with " + eventID + " is full.".trim();
-				}
-			} else {
-				return "There is no " + eventType + " corresponding to the eventID you entered.".trim();
-			}
+			empty.add(String.valueOf(0));
+			empty1.add(String.valueOf(0));
+			empty2.add(String.valueOf(0));
+			client_info_sub_sub.put("TradeShow", empty);
+			client_info_sub_sub.put("Seminar", empty1);
+			client_info_sub_sub.put("Conference", empty2);
+			client_Toronto_info.put(customerID, client_info_sub_sub);
 		}
-		return "Entered information is invalid.".trim();
+
+
+		if(client_Toronto_info.containsKey(customerID)) {
+			if (eventID.substring(0, 3).equalsIgnoreCase("OTW") || eventID.substring(0, 3).equalsIgnoreCase("MTL")) {
+				HashMap<String, String> out_check = new HashMap<String, String>();
+
+				for (int i = 1; i < client_Toronto_info.get(customerID).get("Conference").size(); i++) {
+
+					if (Pattern.matches(".*MTL.*", client_Toronto_info.get(customerID).get("Conference").get(i))
+							|| Pattern.matches(".*OTW.*", client_Toronto_info.get(customerID).get("Conference").get(i))) {
+
+						if (out_check.containsKey(
+								client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8))) {
+							int num = Integer.valueOf(out_check
+									.get(client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8)));
+							num++;
+							out_check.put(client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8),
+									String.valueOf(num));
+						} else {
+							out_check.put(client_Toronto_info.get(customerID).get("Conference").get(i).substring(6, 8),
+									String.valueOf(1));
+						}
+
+					}
+
+				}
+
+				for (int i = 1; i < client_Toronto_info.get(customerID).get("Seminar").size(); i++) {
+
+					if (Pattern.matches(".*MTL.*", client_Toronto_info.get(customerID).get("Seminar").get(i))
+							|| Pattern.matches(".*OTW.*", client_Toronto_info.get(customerID).get("Seminar").get(i))) {
+
+						if (out_check
+								.containsKey(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8))) {
+							int num = Integer.valueOf(out_check
+									.get(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8)));
+							num++;
+							out_check.put(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8),
+									String.valueOf(num));
+						} else {
+							out_check.put(client_Toronto_info.get(customerID).get("Seminar").get(i).substring(6, 8),
+									String.valueOf(1));
+						}
+
+					}
+
+				}
+
+				for (int i = 1; i < client_Toronto_info.get(customerID).get("TradeShow").size(); i++) {
+
+					if (Pattern.matches(".*MTL.*", client_Toronto_info.get(customerID).get("TradeShow").get(i))
+							|| Pattern.matches(".*OTW.*", client_Toronto_info.get(customerID).get("TradeShow").get(i))) {
+
+						if (out_check
+								.containsKey(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8))) {
+							int num = Integer.valueOf(out_check
+									.get(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8)));
+							num++;
+							out_check.put(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8),
+									String.valueOf(num));
+						} else {
+							out_check.put(client_Toronto_info.get(customerID).get("TradeShow").get(i).substring(6, 8),
+									String.valueOf(1));
+						}
+
+					}
+
+				}
+
+				if (out_check.containsKey(eventID.substring(6, 8))) {
+					if (Integer.valueOf(out_check.get(eventID.substring(6, 8))) > 2) {
+						return "User already registered for 3 events outside their city in " + eventID.substring(6, 8)
+							+ " month.".trim();
+					}
+				}
+				
+//				System.out.println(out_check);
+				
+				if (!client_Toronto_info.containsKey(customerID)) {
+					return "customerID entered is invalid.".trim();
+				} else {
+					if (!client_Toronto_info.get(customerID).containsKey(eventType)) {
+						return "eventType entered is invalid.".trim();
+					} else if (client_Toronto_info.get(customerID).get(eventType).contains(eventID)) {
+						return "customer already registered for this event.".trim();
+					} else {
+
+						if (eventID.substring(0, 3).equalsIgnoreCase("OTW")) {
+
+							String response = null;
+							try {
+								response = check_with(customerID, eventType, eventID, "check", "OTW");
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+
+							if (response.equals("Y")) {
+
+								int n = Integer.valueOf(client_Toronto_info.get(customerID).get(eventType).get(0));
+								n++;
+								client_Toronto_info.get(customerID).get(eventType).set(0, String.valueOf(n));
+								client_Toronto_info.get(customerID).get(eventType).add(eventID);
+//								System.out.println(client_Toronto_info);
+								return "Event booked successfully.".trim();
+							} else {
+								return response.trim();
+							}
+
+						} else if (eventID.substring(0, 3).equalsIgnoreCase("MTL")) {
+
+							String response = null;
+							try {
+								response = check_with(customerID, eventType, eventID, "check", "MTL");
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+
+							if (response.equals("Y")) {
+
+								int n = Integer.valueOf(client_Toronto_info.get(customerID).get(eventType).get(0));
+								n++;
+								client_Toronto_info.get(customerID).get(eventType).set(0, String.valueOf(n));
+								client_Toronto_info.get(customerID).get(eventType).add(eventID);
+//								System.out.println(client_Toronto_info);
+								return "Event booked successfully.".trim();
+							} else {
+								return response.trim();
+							}
+
+						}
+
+					}
+				}			
+//				return "HERE";
+
+			} else if (eventID.substring(0, 3).equalsIgnoreCase("TOR")) {
+				if (Toronto_hashmap.get(eventType).containsKey(eventID)) {
+					if (Integer.parseInt(Toronto_hashmap.get(eventType).get(eventID).get(0)) > Integer
+							.parseInt(Toronto_hashmap.get(eventType).get(eventID).get(1))) {
+
+						if (client_Toronto_info.containsKey(customerID)) {
+
+							if (client_Toronto_info.get(customerID).get(eventType).contains(eventID)) {
+								return "Customer is already booked for this event".trim();
+							}
+
+							int val = Integer.parseInt(client_Toronto_info.get(customerID).get(eventType).get(0)) + 1;
+							client_Toronto_info.get(customerID).get(eventType).remove(0);
+							client_Toronto_info.get(customerID).get(eventType).add(0, Integer.toString(val));
+							client_Toronto_info.get(customerID).get(eventType).add(eventID);
+
+						} else {
+							return "The customerID entered is not valid.".trim();
+						}
+
+						int val = Integer.parseInt(Toronto_hashmap.get(eventType).get(eventID).get(1)) + 1;
+						Toronto_hashmap.get(eventType).get(eventID).remove(1);
+						Toronto_hashmap.get(eventType).get(eventID).add(1, Integer.toString(val));
+						return "Event booked successfully.".trim();
+
+					} else {
+						return "Sorry the " + eventType + " with " + eventID + " is full.".trim();
+					}
+				} else {
+					return "There is no " + eventType + " corresponding to the eventID you entered.".trim();
+				}
+			}
+			return "Entered information is invalid.".trim();
+
+		}
+		
+		return null;
+
 	}
 
 	/*
