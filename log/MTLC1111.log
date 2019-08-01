@@ -6,3 +6,51 @@ Jul 31, 2019 7:32:10 PM com.web.client.CustomerClient main
 INFO: Request to montreal book event 
 Jul 31, 2019 7:32:10 PM com.web.client.CustomerClient main
 INFO: Parameters passed are customerID MTLC1111 eventID MTLE260919 and eventtypeSeminar
+Jul 31, 2019 8:13:36 PM com.web.client.CustomerClient main
+INFO: User id entered is MTLC1111
+Jul 31, 2019 8:13:36 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDMTLC1111
+Jul 31, 2019 8:13:57 PM com.web.client.CustomerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 8:13:57 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLE120819 and eventtypeSeminar
+Jul 31, 2019 8:16:16 PM com.web.client.CustomerClient main
+INFO: User id entered is MTLC1111
+Jul 31, 2019 8:16:16 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDMTLC1111
+Jul 31, 2019 8:16:30 PM com.web.client.CustomerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 8:16:30 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLE120919 and eventtypeSeminar
+Jul 31, 2019 8:19:36 PM com.web.client.CustomerClient main
+INFO: User id entered is MTLC1111
+Jul 31, 2019 8:19:36 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDMTLC1111
+Jul 31, 2019 8:19:56 PM com.web.client.CustomerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 8:19:56 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLA110219 and eventtypeSeminar
+Jul 31, 2019 8:34:31 PM com.web.client.CustomerClient main
+INFO: User id entered is MTLC1111
+Jul 31, 2019 8:34:31 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDMTLC1111
+Jul 31, 2019 8:35:07 PM com.web.client.CustomerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 8:35:07 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLE120619 and eventtypeSeminar
+Jul 31, 2019 9:12:14 PM com.web.client.CustomerClient main
+INFO: User id entered is MTLC1111
+Jul 31, 2019 9:12:14 PM com.web.client.CustomerClient main
+INFO: entered as a client with IDMTLC1111
+Jul 31, 2019 9:12:43 PM com.web.client.CustomerClient main
+INFO: Request to montreal book event 
+Jul 31, 2019 9:12:43 PM com.web.client.CustomerClient main
+INFO: Parameters passed are customerID MTLC1111 eventID MTLE120119 and eventtypeSeminar
+Jul 31, 2019 9:12:43 PM com.web.client.CustomerClient main
+INFO: Reply There is no Seminarcorresponding to the eventID you entered.
+Jul 31, 2019 9:13:57 PM com.web.client.CustomerClient main
+INFO: Request: Booking Schedule 
+Jul 31, 2019 9:13:57 PM com.web.client.CustomerClient main
+INFO: Parameter: student ID: MTLC1111
+Jul 31, 2019 9:13:57 PM com.web.client.CustomerClient main
+INFO: Reply:[Following is the booking schedule for the customer, Conferences-, 0, Seminars-, 0, Trade Shows-, 0]

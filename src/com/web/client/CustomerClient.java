@@ -71,7 +71,6 @@ public class CustomerClient {
 //		ottawa_obj = ottawaService.getPort(Common_Interface.class);
 //		toronto_obj = torontoService.getPort(Common_Interface.class);
 
-		
 		URL montrealURL = new URL("http://localhost:8080/montreal?wsdl");
 		QName montrealQName = new QName("http://impl.service.web.com/", "Montreal_ClassService");
 		Service montrealService = Service.create(montrealURL, montrealQName);
@@ -85,8 +84,9 @@ public class CustomerClient {
 		URL torontoURL = new URL("http://localhost:8082/toronto?wsdl");
 		QName torontoQName = new QName("http://impl.service.web.com/", "Toronto_ClassService");
 		Service torontoService = Service.create(torontoURL, torontoQName);
-		montreal_obj = torontoService.getPort(Common_Interface.class);
+		toronto_obj = torontoService.getPort(Common_Interface.class);
 
+		
 		Scanner input = new Scanner(System.in);
 
 		String user_ID = null;
@@ -174,16 +174,16 @@ public class CustomerClient {
 					logger.info("Request to ottawa book event ");
 					logger.info("Parameters passed are customerID " + customerID + " eventID " + eventID
 							+ " and eventtype" + eventType);
-					String reply = ottawa_obj.bookEvent(customerID, eventID, eventType);
-					System.out.println(reply);
+					String reply = ottawa_obj.bookEvent(customerID.trim(), eventID.trim(), eventType.trim());
+					System.out.println(reply.trim());
 					logger.info("Reply " + reply);
 
 				} else if (matches_toronto) {
 					logger.info("Request to ottawa book event ");
 					logger.info("Parameters passed are customerID " + customerID + " eventID " + eventID
 							+ " and eventtype" + eventType);
-					String reply = toronto_obj.bookEvent(customerID, eventID, eventType).trim();
-					System.out.println(reply);
+					String reply = toronto_obj.bookEvent(customerID.trim(), eventID.trim(), eventType.trim()).trim();
+					System.out.println(reply.trim());
 					logger.info("Reply " + reply);
 
 				}
@@ -198,8 +198,8 @@ public class CustomerClient {
 
 					if (strArray[0].equalsIgnoreCase("The customerID entered is not in our records.")) {
 						System.out.println("You have entered as a client ");
-						user_ID = input.nextLine();
-						customerID = user_ID;
+						user_ID = input.nextLine().trim();
+						customerID = user_ID.trim();
 						logger.info("entered as a client with ID" + customerID);
 					} else {
 							System.out.println(list);
@@ -210,14 +210,14 @@ public class CustomerClient {
 				} else if (matches_ottawa) {
 					logger.info("Request: Booking Schedule ");
 					logger.info("Parameter: student ID: " + customerID);
-					String list = ottawa_obj.getBookingSchedule(customerID);
+					String list = ottawa_obj.getBookingSchedule(customerID).trim();
 					String strArray[] = list.split(",");
 
 					if (strArray[0].equalsIgnoreCase("The customerID entered is not in our records.")) {
 						System.out.println("You have entered as a client ");
-						user_ID = input.nextLine();
-						customerID = user_ID;
-						logger.info("entered as a client with ID" + customerID);
+						user_ID = input.nextLine().trim();
+						customerID = user_ID.trim();
+						logger.info("entered as a client with ID" + customerID.trim());
 					} else {
 						System.out.println(list);
 						
@@ -227,14 +227,14 @@ public class CustomerClient {
 				} else if (matches_toronto) {
 					logger.info("Request: Booking Schedule ");
 					logger.info("Parameter: student ID: " + customerID);
-					String list = toronto_obj.getBookingSchedule(customerID);
+					String list = toronto_obj.getBookingSchedule(customerID).trim();
 					String strArray[] = list.split(",");
 
 					if (strArray[0].equalsIgnoreCase("The customerID entered is not in our records.")) {
 						System.out.println("You have entered as a client ");
-						user_ID = input.nextLine();
-						customerID = user_ID;
-						logger.info("entered as a client with ID" + customerID);
+						user_ID = input.nextLine().trim();
+						customerID = user_ID.trim();
+						logger.info("entered as a client with ID" + customerID.trim());
 					} else {
 							System.out.println(list);
 						logger.info("Reply:" + list);
@@ -246,30 +246,30 @@ public class CustomerClient {
 			case 3:
 				System.out.println("Enter event Type for the event ");
 				input.nextLine();
-				String eventType1 = input.nextLine();
+				String eventType1 = input.nextLine().trim();
 				System.out.println("Enter eventID for the event ");
-				String eventID1 = input.nextLine();
+				String eventID1 = input.nextLine().trim();
 
 				System.out.println(eventType1 + " 2 " + eventID1);
 
 				if (matches_montreal) {
 					logger.info("Request: Remove event ");
 					logger.info("Parameter: event ID:" + eventID1 + ", Student ID:" + user_ID);
-					String reply = montreal_obj.cancelEvent(customerID, eventID1, eventType1);
+					String reply = montreal_obj.cancelEvent(customerID.trim(), eventID1.trim(), eventType1.trim());
 					System.out.println(reply);
 					logger.info("Reply " + reply);
 
 				} else if (matches_ottawa) {
 					logger.info("Request: Remove event ");
 					logger.info("Parameter: event ID:" + eventID1 + ", Student ID:" + user_ID);
-					String reply = ottawa_obj.cancelEvent(customerID, eventID1, eventType1);
-					System.out.println(reply);
+					String reply = ottawa_obj.cancelEvent(customerID.trim(), eventID1.trim(), eventType1.trim());
+					System.out.println(reply.trim());
 					logger.info("Reply " + reply);
 
 				} else if (matches_toronto) {
 					logger.info("Request: Remove event ");
 					logger.info("Parameter: event ID:" + eventID1 + ", Student ID:" + user_ID);
-					String reply = toronto_obj.cancelEvent(customerID, eventID1, eventType1);
+					String reply = toronto_obj.cancelEvent(customerID.trim(), eventID1.trim(), eventType1.trim());
 					System.out.println(reply);
 					logger.info("Reply " + reply);
 
@@ -279,22 +279,22 @@ public class CustomerClient {
 			case 4:
 				input.nextLine();
 				System.out.println("Enter old eventType");
-				String oldEventType = input.nextLine();
+				String oldEventType = input.nextLine().trim();
 				System.out.println("Enter old eventID");
-				String oldEventID = input.nextLine();
+				String oldEventID = input.nextLine().trim();
 				System.out.println("Enter new eventType");
-				String newEventType = input.nextLine();
+				String newEventType = input.nextLine().trim();
 				System.out.println("Enter new eventID");
-				String newEventID = input.nextLine();
+				String newEventID = input.nextLine().trim();
 				
 				if(matches_montreal) {
-					String reply = montreal_obj.swapEvent(customerID, oldEventType, oldEventID, newEventType, newEventID);
+					String reply = montreal_obj.swapEvent(customerID.trim(), oldEventType.trim(), oldEventID.trim(), newEventType.trim(), newEventID.trim());
 					System.out.println(reply);
 				} else if(matches_ottawa) {
-					String reply = ottawa_obj.swapEvent(customerID, oldEventType, oldEventID, newEventType, newEventID);					
+					String reply = ottawa_obj.swapEvent(customerID.trim(), oldEventType.trim(), oldEventID.trim(), newEventType.trim(), newEventID.trim());					
 					System.out.println(reply);
 				} else if(matches_toronto) {
-					String reply = toronto_obj.swapEvent(customerID, oldEventType, oldEventID, newEventType, newEventID);
+					String reply = toronto_obj.swapEvent(customerID.trim(), oldEventType.trim(), oldEventID.trim(), newEventType.trim(), newEventID.trim());
 					System.out.println(reply);
 				}
 				

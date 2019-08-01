@@ -1,0 +1,48 @@
+Jul 31, 2019 8:26:43 PM com.web.client.EventManagerClient main
+INFO: User id entered is OTWM4560
+Jul 31, 2019 8:26:43 PM com.web.client.EventManagerClient main
+INFO: Entered as a Manager with IDOTWM4560
+Jul 31, 2019 8:27:11 PM com.web.client.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 31, 2019 8:27:13 PM com.web.client.EventManagerClient main
+INFO: Parameters :OTWE080619 Conferences 1
+Jul 31, 2019 8:27:13 PM com.web.client.EventManagerClient main
+INFO: Reply Entered event type is invalid.
+Jul 31, 2019 8:28:00 PM com.web.client.EventManagerClient main
+INFO: Sorry you cannot add the event for other cities
+Jul 31, 2019 9:14:10 PM com.web.client.EventManagerClient main
+INFO: User id entered is OTWM4560
+Jul 31, 2019 9:14:10 PM com.web.client.EventManagerClient main
+INFO: Entered as a Manager with IDOTWM4560
+Jul 31, 2019 9:14:23 PM com.web.client.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 31, 2019 9:14:25 PM com.web.client.EventManagerClient main
+INFO: Parameters :OTWE080619 Conference 1
+Jul 31, 2019 9:14:25 PM com.web.client.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 31, 2019 9:14:39 PM com.web.client.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 31, 2019 9:14:41 PM com.web.client.EventManagerClient main
+INFO: Parameters :OTWE110619 Conference 1
+Jul 31, 2019 9:14:41 PM com.web.client.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 31, 2019 9:22:12 PM com.web.client.EventManagerClient main
+INFO: Request: list eventavailability req to Ottawa server 
+Jul 31, 2019 9:22:12 PM com.web.client.EventManagerClient main
+INFO: Parameter:Seminar
+Jul 31, 2019 9:22:12 PM com.web.client.EventManagerClient main
+INFO: Reply [MTLE230719 0]
+Jul 31, 2019 9:22:49 PM com.web.client.EventManagerClient main
+INFO: Sorry you cannot add the event for other cities
+Jul 31, 2019 9:22:59 PM com.web.client.EventManagerClient main
+INFO: Request: list eventavailability req to Ottawa server 
+Jul 31, 2019 9:22:59 PM com.web.client.EventManagerClient main
+INFO: Parameter:Conference
+Jul 31, 2019 9:22:59 PM com.web.client.EventManagerClient main
+INFO: Reply [OTWE110619 1, OTWE080619 0, MTLA090619 2]
+Jul 31, 2019 9:23:19 PM com.web.client.EventManagerClient main
+INFO: Request: list eventavailability req to Ottawa server 
+Jul 31, 2019 9:23:19 PM com.web.client.EventManagerClient main
+INFO: Parameter:TradeShow
+Jul 31, 2019 9:23:19 PM com.web.client.EventManagerClient main
+INFO: Reply []

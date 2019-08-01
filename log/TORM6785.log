@@ -1,0 +1,28 @@
+Jul 31, 2019 9:16:03 PM com.web.client.EventManagerClient main
+INFO: User id entered is TORM6785
+Jul 31, 2019 9:16:03 PM com.web.client.EventManagerClient main
+INFO: Entered as a Manager with IDTORM6785
+Jul 31, 2019 9:16:10 PM com.web.client.EventManagerClient main
+INFO: Request: list eventavailability req to Toronto server 
+Jul 31, 2019 9:16:10 PM com.web.client.EventManagerClient main
+INFO: Parameter:Conference
+Jul 31, 2019 9:16:10 PM com.web.client.EventManagerClient main
+INFO: Reply [OTWE110619 1, OTWE080619 1, MTLA090619 2]
+Jul 31, 2019 9:16:16 PM com.web.client.EventManagerClient main
+INFO: Request: list eventavailability req to Toronto server 
+Jul 31, 2019 9:16:16 PM com.web.client.EventManagerClient main
+INFO: Parameter:Seminar
+Jul 31, 2019 9:16:16 PM com.web.client.EventManagerClient main
+INFO: Reply [MTLE230719 1]
+Jul 31, 2019 9:16:21 PM com.web.client.EventManagerClient main
+INFO: Request: list eventavailability req to Toronto server 
+Jul 31, 2019 9:16:21 PM com.web.client.EventManagerClient main
+INFO: Parameter:TradeShow
+Jul 31, 2019 9:16:22 PM com.web.client.EventManagerClient main
+INFO: Reply [MTLA080619 2]
+Jul 31, 2019 9:19:44 PM com.web.client.EventManagerClient main
+INFO: Request: Remove event 
+Jul 31, 2019 9:19:44 PM com.web.client.EventManagerClient main
+INFO: Parameter: event ID:MTLA090619, Student ID:TORC1234
+Jul 31, 2019 9:19:44 PM com.web.client.EventManagerClient main
+INFO: Reply Customer has been removed from this event.

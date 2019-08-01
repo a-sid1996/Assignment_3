@@ -1,0 +1,28 @@
+Jul 31, 2019 9:15:03 PM com.web.client.EventManagerClient main
+INFO: User id entered is MTLM9087
+Jul 31, 2019 9:15:03 PM com.web.client.EventManagerClient main
+INFO: Entered as a Manager with IDMTLM9087
+Jul 31, 2019 9:15:18 PM com.web.client.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 31, 2019 9:15:19 PM com.web.client.EventManagerClient main
+INFO: Parameters :MTLA090619 Conference 2
+Jul 31, 2019 9:15:19 PM com.web.client.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 31, 2019 9:15:31 PM com.web.client.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 31, 2019 9:15:33 PM com.web.client.EventManagerClient main
+INFO: Parameters :MTLA080619 TradeShow 2
+Jul 31, 2019 9:15:33 PM com.web.client.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 31, 2019 9:15:48 PM com.web.client.EventManagerClient main
+INFO: Request: Add event for client by manager 
+Jul 31, 2019 9:15:50 PM com.web.client.EventManagerClient main
+INFO: Parameters :MTLE230719 Seminar 1
+Jul 31, 2019 9:15:50 PM com.web.client.EventManagerClient main
+INFO: Reply Event successfully added.
+Jul 31, 2019 9:20:54 PM com.web.client.EventManagerClient main
+INFO: Request: Add course from manager 
+Jul 31, 2019 9:20:54 PM com.web.client.EventManagerClient main
+INFO: Parameters :MTLA080619 TradeShow
+Jul 31, 2019 9:20:54 PM com.web.client.EventManagerClient main
+INFO: Reply The event was successfully removed.

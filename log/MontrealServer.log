@@ -88,3 +88,51 @@ Jul 31, 2019 7:31:26 PM com.web.service.impl.Montreal_Class initialize
 INFO: Initilize Implementations 
 Jul 31, 2019 7:31:26 PM com.web.service.impl.Montreal_Class initialize
 INFO: Server is initilized.
+Jul 31, 2019 8:07:56 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:07:56 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:07:56 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 8:11:26 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:11:26 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:11:26 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 8:13:19 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:13:19 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:13:19 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 8:15:01 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:15:01 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:15:01 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 8:18:15 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:18:15 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:18:15 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 8:26:13 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:26:13 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:26:13 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 8:34:18 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 8:34:18 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 8:34:18 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.
+Jul 31, 2019 9:11:42 PM com.web.server.Montreal_Server main
+INFO: Inside the Montreal Server
+Jul 31, 2019 9:11:42 PM com.web.service.impl.Montreal_Class initialize
+INFO: Initilize Implementations 
+Jul 31, 2019 9:11:42 PM com.web.service.impl.Montreal_Class initialize
+INFO: Server is initilized.

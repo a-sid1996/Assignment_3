@@ -25,30 +25,24 @@ public class Test {
 	 * Perform 1.
 	 */
 	public static void perform1() {
-
 		String newEventID = "OTWE110619";
 		String newEventType = "Conference";
 		String oldEventType = "Seminar";
 		String oldEventID = "MTLE230719";
 		String customerID = "TORC1111";
-
 		System.out.println(toronto_obj.swapEvent(customerID, oldEventType, oldEventID, newEventType, newEventID) + "---T1");
-
 	}
 	
 	/**
 	 * Perform 2.
 	 */
 	public static void perform2() {
-
 		String newEventID = "MTLA090619";
 		String newEventType = "Conference";
 		String oldEventType = "Conference";
 		String oldEventID = "OTWE110619";
 		String customerID = "TORC1111";
-
 		System.out.println(toronto_obj.swapEvent(customerID, oldEventType, oldEventID, newEventType, newEventID) + "---T2");
-
 	}
 	
 	/**
@@ -115,21 +109,20 @@ public class Test {
 	 */
 	public static void main(String args[]) throws Exception {
 		
-		URL montrealURL = new URL("http://localhost:8080/MTL?wsdl");
-		QName montrealQName = new QName("http://server/", "MTL_ImplService");
+		URL montrealURL = new URL("http://localhost:8080/montreal?wsdl");
+		QName montrealQName = new QName("http://impl.service.web.com/", "Montreal_ClassService");
 		Service montrealService = Service.create(montrealURL, montrealQName);
-		montreal_obj =  montrealService.getPort(Common_Interface.class);
+		montreal_obj = montrealService.getPort(Common_Interface.class);
 
-		URL ottawaURL = new URL("http://localhost:8080/OTW?wsdl");
-		QName ottawaQName = new QName("http://server/", "OTW_ImplService");
+		URL ottawaURL = new URL("http://localhost:8081/ottawa?wsdl");
+		QName ottawaQName = new QName("http://impl.service.web.com/", "Ottawa_ClassService");
 		Service ottawaService = Service.create(ottawaURL, ottawaQName);
 		ottawa_obj = ottawaService.getPort(Common_Interface.class);
 
-		URL torontoURL = new URL("http://localhost:8080/TOR?wsdl");
-		QName torontoQ = new QName("http://server/", "TOR_ImplService");
-		Service torontoService = Service.create(torontoURL, torontoQ);
+		URL torontoURL = new URL("http://localhost:8082/toronto?wsdl");
+		QName torontoQName = new QName("http://impl.service.web.com/", "Toronto_ClassService");
+		Service torontoService = Service.create(torontoURL, torontoQName);
 		toronto_obj = torontoService.getPort(Common_Interface.class);
-		
 
 		Runnable task = () -> {
 
