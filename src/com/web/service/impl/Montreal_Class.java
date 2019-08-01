@@ -272,7 +272,7 @@ public class Montreal_Class implements Common_Interface {
 	 * java.lang.String, java.lang.String)
 	 */
 	public String bookEvent(String customerID, String eventID, String eventType) {
-
+System.out.println("IMHERE" +customerID+" "+ eventID+ " "+ eventType);
 		if( client_Montreal_info.containsKey(customerID) ) {
 			if (eventID.substring(0, 3).equalsIgnoreCase("TOR") || eventID.substring(0, 3).equalsIgnoreCase("OTW")) {
 

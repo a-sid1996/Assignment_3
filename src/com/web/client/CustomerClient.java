@@ -130,7 +130,7 @@ public class CustomerClient {
 		String expression3 = ".*TOR.*";
 
 		System.out.println("You have entered as a client ");
-		String customerID = user_ID;
+		String customerID = user_ID.trim();
 		logger.info("entered as a client with ID" + customerID);
 
 		boolean matches_montreal = Pattern.matches(expression1, user_ID);
@@ -156,9 +156,9 @@ public class CustomerClient {
 			case 1:
 				System.out.println("Enter event type for the event ");
 				input.nextLine();
-				String eventType = input.nextLine();
+				String eventType = input.nextLine().trim();
 				System.out.println("Enter eventID for the event ");
-				String eventID = input.nextLine();
+				String eventID = input.nextLine().trim();
 
 				System.out.println(eventType + " 1 " + eventID);
 
@@ -166,8 +166,8 @@ public class CustomerClient {
 					logger.info("Request to montreal book event ");
 					logger.info("Parameters passed are customerID " + customerID + " eventID " + eventID
 							+ " and eventtype" + eventType);
-					String reply = montreal_obj.bookEvent(customerID, eventID, eventType);
-					System.out.println(reply);
+					String reply = montreal_obj.bookEvent(customerID.trim(), eventID.trim(), eventType.trim());
+					System.out.println(reply.trim());
 					logger.info("Reply " + reply);
 
 				} else if (matches_ottawa) {
